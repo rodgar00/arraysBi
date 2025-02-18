@@ -8,6 +8,6 @@ for i in range(5):
         if i == j:
             tabla[i].append(1)
         else:
-            tabla[i].append(2)
+            tabla[i].append(0)
 
 print(printMatriz(tabla))

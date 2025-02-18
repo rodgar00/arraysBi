@@ -11,9 +11,15 @@ for nFilas in range(filas):
         valor = int(input(f"Introduce el valor para [{nFilas + 1}][{nColumnas + 1}]: "))
         tabla[nFilas].append(valor)
 
-resultadoC = [sum(fila[columnas] for fila in tabla) for j in range(columnas)]
+resultadoC = []
+for nColumnas in range(columnas):
+    sumaColumnas = sum(tabla[fila][nColumnas] for fila in range(filas))
+    resultadoC.append(sumaColumnas)
 
-resultadoF = [sum(fila) for fila in tabla]
+resultadoF = []
+for nFilas in range(filas):
+    sumaFilas = sum(tabla[nFilas])
+    resultadoF.append(sumaFilas)
 
 print(printMatriz(tabla))
 print(f"Resultado de sumar las columnas: {resultadoC}")

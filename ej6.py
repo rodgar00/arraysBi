@@ -1,7 +1,7 @@
 from ayuda import printMatriz
 
-filasAsignaturas = 3
-columnasAlumnos = 15
+filasAsignaturas = 5
+columnasAlumnos = 5
 
 notas = []
 
@@ -11,15 +11,21 @@ for nFilas in range(filasAsignaturas):
         valor = float(input(f"Introduce la nota de la Asignatura {nFilas + 1} para el Alumno {nColumnas + 1}: "))
         notas[nFilas].append(valor)
 
-media_alumnos = [sum(notas[i][j] for i in range(filasAsignaturas)) / filasAsignaturas for j in range(columnasAlumnos)]
+media_alumnos = []
+for j in range(columnasAlumnos):
+    sumaNotas = sum(notas[i][j] for i in range(filasAsignaturas))
+    media_alumnos.append(sumaNotas / filasAsignaturas)
 
-media_asignaturas = [sum(fila) / columnasAlumnos for fila in notas]
+media_asignaturas = []
+for i in range(filasAsignaturas):
+    sumaNotasAsignatura = sum(notas[i])
+    media_asignaturas.append(sumaNotasAsignatura / columnasAlumnos)
 
-media_clase = sum(media_asignaturas) / filasAsignaturas
+sumaMediaAsignaturas = sum(media_asignaturas)
+media_clase = sumaMediaAsignaturas / filasAsignaturas
+
+print(f"Media de los alumnos: {media_alumnos}")
+print(f"Media de las asignaturas: {media_asignaturas}")
+print(f"Media de la clase: {media_clase}")
 
 print(printMatriz(notas))
-
-
-print("\nNota media de cada alumno:", media_alumnos)
-print("Nota media de cada asignatura:", media_asignaturas)
-print(f"Nota media de la clase: {media_clase:.2f}")

@@ -1,13 +1,16 @@
-from ayuda import printMatriz
+matriz = [
+    [3, 2, 5, 0, 9],
+    [9, 10, 2, 3, 1],
+    [-3, 2, 3, 43, 1]
+]
 
-tabla = []
+matrizTranspuesta = []
 
-for i in range(5):
-    tabla.append([])
-    for j in range(5):
-        if i == j:
-            tabla[i].append(1)
-        else:
-            tabla[i].append(2)
+for i in range(len(matriz[0])):
+    nuevaFila = []
+    for j in range(len(matriz)):
+        nuevaFila.append(matriz[j][i])
+    matrizTranspuesta.append(nuevaFila)
 
-print(printMatriz(tabla))
+for fila in matrizTranspuesta:
+    print(fila)
